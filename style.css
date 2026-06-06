@@ -618,10 +618,3 @@ footer{
 
 }
 
-.home-img img{
-    width: 350px;
-    height: 350px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 5px solid #00abf0;
-}
