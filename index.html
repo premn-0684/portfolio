@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>K. Premnath | Portfolio</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f8fbff;
+    color:#0f172a;
+    overflow-x:hidden;
+}
+
+/* NAVBAR */
+
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    background:#0ea5e9;
+    padding:18px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    z-index:1000;
+    box-shadow:0 5px 20px rgba(0,0,0,.1);
+}
+
+.logo{
+    color:#fff;
+    font-size:28px;
+    font-weight:700;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:25px;
+}
+
+nav ul li a{
+    color:#fff;
+    text-decoration:none;
+    font-weight:600;
+    position:relative;
+}
+
+nav ul li a::after{
+    content:'';
+    position:absolute;
+    left:0;
+    bottom:-5px;
+    width:0;
+    height:3px;
+    background:#fff;
+    transition:.4s;
+}
+
+nav ul li a:hover::after{
+    width:100%;
+}
+
+/* HERO */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    padding:120px 8%;
+}
+
+.hero-content{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    width:100%;
+    gap:60px;
+}
+
+.hero-left{
+    flex:1;
+    animation:slideLeft 1s ease;
+}
+
+.hero-left h1{
+    font-size:75px;
+    line-height:1.1;
+}
+
+.hero-left span{
+    color:#0ea5e9;
+}
+
+.hero-left h2{
+    margin-top:20px;
+    font-size:34px;
+}
+
+.hero-left p{
+    margin-top:20px;
+    color:#64748b;
+    line-height:1.8;
+    font-size:18px;
+}
+
+.hero-buttons{
+    margin-top:35px;
+    display:flex;
+    gap:15px;
+}
+
+.btn{
+    padding:14px 28px;
+    border-radius:12px;
+    text-decoration:none;
+    font-weight:600;
+    transition:.4s;
+}
+
+.primary-btn{
+    background:#0ea5e9;
+    color:#fff;
+}
+
+.primary-btn:hover{
+    transform:translateY(-5px);
+}
+
+.secondary-btn{
+    border:2px solid #0ea5e9;
+    color:#0ea5e9;
+}
+
+.secondary-btn:hover{
+    background:#0ea5e9;
+    color:white;
+}
+
+/* IMAGE AREA */
+
+.hero-right{
+    flex:1;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+    min-height:600px;
+    animation:slideRight 1s ease;
+}
+
+.circle-bg{
+    width:500px;
+    height:500px;
+    border-radius:50%;
+    position:absolute;
+    background:linear-gradient(
+        135deg,
+        #0ea5e9,
+        #2563eb,
+        #38bdf8
+    );
+    background-size:300% 300%;
+    animation:gradientMove 8s infinite;
+    filter:blur(20px);
+}
+
+.hero-image{
+    position:relative;
+    width:420px;
+    height:420px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.hero-image img{
+    width:320px;
+    height:320px;
+    border-radius:50%;
+    object-fit:cover;
+    border:8px solid white;
+    z-index:5;
+
+    box-shadow:
+    0 0 25px #38bdf8,
+    0 0 50px #38bdf8;
+}
+
+.ring{
+    position:absolute;
+    border-radius:50%;
+}
+
+.ring1{
+    width:380px;
+    height:380px;
+    border:4px solid #38bdf8;
+    animation:spin 12s linear infinite;
+}
+
+.ring2{
+    width:430px;
+    height:430px;
+    border:2px dashed #7dd3fc;
+    animation:spinReverse 18s linear infinite;
+}
+
+/* FLOATING CARDS */
+
+.floating-card{
+    position:absolute;
+    background:rgba(255,255,255,.25);
+    backdrop-filter:blur(12px);
+    padding:15px 22px;
+    border-radius:18px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    animation:floatCard 4s ease-in-out infinite;
+}
+
+.floating-card i{
+    color:#0ea5e9;
+}
+
+.card1{
+    top:90px;
+    right:0;
+}
+
+.card2{
+    bottom:140px;
+    left:0;
+}
+
+.card3{
+    bottom:50px;
+    right:20px;
+}
+
+/* SECTIONS */
+
+section{
+    padding:90px 8%;
+}
+
+section h2{
+    text-align:center;
+    font-size:42px;
+    margin-bottom:50px;
+    color:#0ea5e9;
+}
+
+/* ABOUT */
+
+.about-text{
+    max-width:900px;
+    margin:auto;
+    text-align:center;
+    color:#64748b;
+    line-height:1.8;
+}
+
+/* STATS */
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.stat-box{
+    background:white;
+    padding:35px;
+    text-align:center;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,.05);
+    transition:.4s;
+}
+
+.stat-box:hover{
+    transform:translateY(-10px);
+    background:#0ea5e9;
+    color:white;
+}
+
+.stat-box h3{
+    font-size:42px;
+}
+
+/* SKILLS */
+
+.skills-container,
+.services-container,
+.projects-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.skill-card,
+.service-card,
+.project-card{
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,.05);
+    transition:.4s;
+}
+
+.skill-card:hover,
+.service-card:hover,
+.project-card:hover{
+    transform:translateY(-10px);
+}
+
+.skill-card h3,
+.service-card h3,
+.project-card h3{
+    color:#0ea5e9;
+    margin-bottom:10px;
+}
+
+/* PROJECTS */
+
+.project-card img{
+    width:100%;
+    border-radius:15px;
+    margin-bottom:15px;
+}
+
+/* CONTACT */
+
+.contact{
+    text-align:center;
+}
+
+.contact p{
+    margin:15px 0;
+}
+
+.contact a{
+    color:#0ea5e9;
+    text-decoration:none;
+}
+
+.social-links{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    margin-top:25px;
+}
+
+.social-links a{
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    background:#0ea5e9;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-decoration:none;
+    transition:.4s;
+}
+
+.social-links a:hover{
+    transform:translateY(-5px);
+}
+
+/* FOOTER */
+
+footer{
+    background:#0f172a;
+    color:white;
+    text-align:center;
+    padding:25px;
+}
+
+/* ANIMATION */
+
+@keyframes spin{
+    from{transform:rotate(0);}
+    to{transform:rotate(360deg);}
+}
+
+@keyframes spinReverse{
+    from{transform:rotate(360deg);}
+    to{transform:rotate(0);}
+}
+
+@keyframes floatCard{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-15px);}
+}
+
+@keyframes slideLeft{
+    from{
+        opacity:0;
+        transform:translateX(-60px);
+    }
+    to{
+        opacity:1;
+        transform:translateX(0);
+    }
+}
+
+@keyframes slideRight{
+    from{
+        opacity:0;
+        transform:translateX(60px);
+    }
+    to{
+        opacity:1;
+        transform:translateX(0);
+    }
+}
+
+@keyframes gradientMove{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.hero-content{
+    flex-direction:column-reverse;
+    text-align:center;
+}
+
+.hero-left h1{
+    font-size:50px;
+}
+
+.hero-left h2{
+    font-size:26px;
+}
+
+.hero-buttons{
+    justify-content:center;
+}
+
+.floating-card{
+    display:none;
+}
+
+.circle-bg{
+    width:350px;
+    height:350px;
+}
+
+.hero-image img{
+    width:240px;
+    height:240px;
+}
+
+.ring1{
+    width:300px;
+    height:300px;
+}
+
+.ring2{
+    width:340px;
+    height:340px;
+}
+
+nav{
+    flex-direction:column;
+    gap:10px;
+}
+
+nav ul{
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+<div class="logo">K. PREMNATH</div>
+
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#services">Services</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+
+<section class="hero" id="home">
+
+<div class="hero-content">
+
+<div class="hero-left">
+
+<h1>Hi, I'm <br><span>K. Premnath</span></h1>
+
+<h2>I'm a <span class="typing"></span></h2>
+
+<p>
+I design modern websites and create digital marketing
+strategies that help businesses grow online.
+</p>
+
+<div class="hero-buttons">
+<a href="#about" class="btn primary-btn">About Me</a>
+<a href="#contact" class="btn secondary-btn">Contact</a>
+</div>
+
+</div>
+
+<div class="hero-right">
+
+<div class="circle-bg"></div>
+
+<div class="hero-image">
+<div class="ring ring1"></div>
+<div class="ring ring2"></div>
+
+<img src="images/Prem.png" alt="Premnath">
+</div>
+
+<div class="floating-card card1">
+<i class="fas fa-laptop-code"></i>
+<span>Web Designer</span>
+</div>
+
+<div class="floating-card card2">
+<i class="fas fa-chart-line"></i>
+<span>Digital Marketer</span>
+</div>
+
+<div class="floating-card card3">
+<i class="fas fa-rocket"></i>
+<span>Brand Growth</span>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="about">
+<h2>About Me</h2>
+
+<p class="about-text">
+Hello! I'm Premnath, a Web Designer, Digital Marketer and
+Website Builder passionate about creating responsive websites,
+SEO strategies, social media branding and business growth solutions.
+</p>
+</section>
+
+<section class="stats">
+
+<div class="stat-box">
+<h3>2+</h3>
+<p>Projects Completed</p>
+</div>
+
+<div class="stat-box">
+<h3>3+</h3>
+<p>Years Learning</p>
+</div>
+
+<div class="stat-box">
+<h3>100%</h3>
+<p>Client Satisfaction</p>
+</div>
+
+</section>
+
+<section id="skills">
+
+<h2>My Skills</h2>
+
+<div class="skills-container">
+
+<div class="skill-card">
+<h3>SEO</h3>
+<p>Search Engine Optimization & Ranking.</p>
+</div>
+
+<div class="skill-card">
+<h3>Google Ads</h3>
+<p>Lead Generation & Campaign Management.</p>
+</div>
+
+<div class="skill-card">
+<h3>Social Media Marketing</h3>
+<p>Instagram, Facebook & LinkedIn Growth.</p>
+</div>
+
+<div class="skill-card">
+<h3>Website Design</h3>
+<p>HTML, CSS, Responsive Web Design.</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="services">
+
+<h2>Services</h2>
+
+<div class="services-container">
+
+<div class="service-card">
+<h3>Website Design</h3>
+<p>Modern and responsive websites.</p>
+</div>
+
+<div class="service-card">
+<h3>SEO Optimization</h3>
+<p>Improve your Google rankings.</p>
+</div>
+
+<div class="service-card">
+<h3>Digital Marketing</h3>
+<p>Grow your business online.</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="projects">
+
+<h2>Projects</h2>
+
+<div class="projects-container">
+
+<!-- Project Card -->
+<div class="project-card">
+    
+
+    <div class="project-content">
+        <h3>Kavi Interiors Trichy</h3>
+
+        <p>
+            A professional interior design and woodwork business website
+            developed using HTML, CSS and JavaScript. The website showcases
+            residential interiors, office interiors, modular kitchens,
+            PVC channel works and customer enquiry features.
+        </p>
+
+        <div class="project-tech">
+            <span>HTML5</span>
+            <span>CSS3</span>
+            <span>JavaScript</span>
+            <span>Responsive Design</span>
+        </div>
+
+        <div class="project-buttons">
+            <a href="https://kaviinteriors.infinityfreeapp.com/?i=1"
+               target="_blank"
+               class="btn">
+               Live Demo
+            </a>
+
+            <a href="#"
+               class="btn btn-secondary">
+               Source Code
+            </a>
+        </div>
+    </div>
+
+</div>
+
+<div class="project-card">
+<h3>Mr. Digital Marketer</h3>
+<p>Digital Marketing Agency Website.</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="contact" class="contact">
+
+<h2>Contact Me</h2>
+
+<p>
+<i class="fas fa-envelope"></i>
+<a href="mailto:premnathsanjay06@gmail.com">
+premnathsanjay06@gmail.com
+</a>
+</p>
+
+<p>
+<i class="fas fa-phone"></i>
+<a href="tel:+916383014769">
++91 6383014769
+</a>
+</p>
+
+<div class="social-links">
+
+<a href="https://www.linkedin.com/in/premnath-k-digital-marketer/"><i class="fab fa-linkedin"></i></a>
+<a href="https://www.instagram.com/mr_digital_marketer_06/"><i class="fab fa-instagram"></i></a>
+<a href="https://www.facebook.com/profile.php?id=61587875523141"><i class="fab fa-facebook"></i></a>
+
+</div>
+
+</section>
+
+<footer>
+<p>© 2026 K. Premnath. All Rights Reserved.</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+<script>
+new Typed(".typing",{
+strings:[
+"Web Designer",
+"Digital Marketer",
+"Website Builder",
+"Freelancer"
+],
+typeSpeed:80,
+backSpeed:50,
+loop:true
+});
+</script>
+
+</body>
+</html>
